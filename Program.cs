@@ -4,72 +4,87 @@
 
 // 1, -7, 567, 89, 223-> 3
 
-Console.WriteLine("Введите желаемые числа через пробел:");
-int[] array = ReadNumbers(Console.ReadLine()!);
-PrintArray(array);
+// Console.WriteLine("Введите желаемые числа через пробел:");
+// int[] array = ReadNumbers(Console.ReadLine()!);
+// PrintArray(array);
 
-int[] ReadNumbers(string input)
-{
-    int count = 1;
-    for(int i = 0; i < input.Length; i++)
-    {
-        if (input[i] == ' ')
-        {
-            count++;
-        }
-    }
-    int[] numbers = new int [count];
-    int index = 0;
-    for(int i = 0; i < input.Length; i++)
-    {
-        string temp = "";
-        while(input[i] != ' ')
-        {
-            if(i != input.Length - 1)
-            {
-                temp += input[i].ToString();
-                i++;
-            }
-            else
-            {
-                temp += input[i].ToString();
-                break;
-            }
-        }
-        numbers[index] = Convert.ToInt32(temp);
-        index++;
-    }
-    return numbers;
-}
+// int[] ReadNumbers(string input)
+// {
+//     int count = 1;
+//     for(int i = 0; i < input.Length; i++)
+//     {
+//         if (input[i] == ' ')
+//         {
+//             count++;
+//         }
+//     }
+//     int[] numbers = new int [count];
+//     int index = 0;
+//     for(int i = 0; i < input.Length; i++)
+//     {
+//         string temp = "";
+//         while(input[i] != ' ')
+//         {
+//             if(i != input.Length - 1)
+//             {
+//                 temp += input[i].ToString();
+//                 i++;
+//             }
+//             else
+//             {
+//                 temp += input[i].ToString();
+//                 break;
+//             }
+//         }
+//         numbers[index] = Convert.ToInt32(temp);
+//         index++;
+//     }
+//     return numbers;
+// }
 
-void PrintArray(int[] array)
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-}
+// void PrintArray(int[] array)
+// {
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+// }
 
-int count = 0;
-for(int i = 0; i < array.Length; i++)
-{
-    if(array[i] > 0)
-    {
-        count++;
-    }
-}
-if(count == 1)
-{
-    Console.WriteLine($"Вы ввели {count} число больше нуля. Вы великолепны!");
-}
-if(count > 1 && count < 5)
-{
-    Console.WriteLine($"Вы ввели {count} числа больше нуля. Вы великолепны!");
-}
-if(count > 4)
-{
-    Console.WriteLine($"Вы ввели {count} чисел больше нуля. Вы великолепны!");
-}
+// int count = 0;
+// for(int i = 0; i < array.Length; i++)
+// {
+//     if(array[i] > 0)
+//     {
+//         count++;
+//     }
+// }
+// if(count == 1)
+// {
+//     Console.WriteLine($"Вы ввели {count} число больше нуля. Вы великолепны!");
+// }
+// if(count > 1 && count < 5)
+// {
+//     Console.WriteLine($"Вы ввели {count} числа больше нуля. Вы великолепны!");
+// }
+// if(count > 4)
+// {
+//     Console.WriteLine($"Вы ввели {count} чисел больше нуля. Вы великолепны!");
+// }
+
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+Console.WriteLine("Введите число b1: ");
+double b1 = Convert.ToInt32(Console.ReadLine()!);
+Console.WriteLine("Введите число k1: ");
+double k1 = Convert.ToInt32(Console.ReadLine()!);
+Console.WriteLine("Введите число b2: ");
+double b2 = Convert.ToInt32(Console.ReadLine()!);
+Console.WriteLine("Введите число k2: ");
+double k2 = Convert.ToInt32(Console.ReadLine()!);
+
+double x = (-b2 + b1)/(-k1 + k2);
+double y = k2 * x + b2;
+
+Console.WriteLine($"Точка пересечения двух прямых находится по координатам X: {x}, Y: {y}.");
